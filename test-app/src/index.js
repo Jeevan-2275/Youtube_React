@@ -44,7 +44,7 @@ const App = () => {
           <div key={video.id.videoId}>
             <h3>{video.snippet.title}</h3>
             <img
-              src={video.snippet.thumbnails.medium.url}
+              src={video.snippet.thumbnails.medium.}
               alt={video.snippet.title}
             />
           </div>

@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
-const API_KEY = 'AIzaSyBZ9-v4uf_BpxVvty0uolN7ohRpedhw9Vg';
+const BASE_URL = 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCWAKiFSwXsoBpvzV8L_0pVg&key=[AIzaSyDwkxqOL9_InKNDMyxKDpZeIpF1VnZ_Suw] ';
+const API_KEY = 'AIzaSyDwkxqOL9_InKNDMyxKDpZeIpF1VnZ_Suw';
 
 export const fetchVideos = async (searchQuery = 'trending videos') => {
   try {
-    const response = await axios.get(`${"https://youtube.googleapis.com/youtube/v3"}/search`, {
+    const response = await axios.get(`${"https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCWAKiFSwXsoBpvzV8L_0pVg&key=[AIzaSyDwkxqOL9_InKNDMyxKDpZeIpF1VnZ_Suw] "}/search`, {
       params: {
         key: API_KEY,        
                q: searchQuery,
