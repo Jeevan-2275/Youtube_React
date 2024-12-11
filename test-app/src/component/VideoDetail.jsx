@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 const VideoDetail = () => {
-  const { id } = useParams(); // Extract video ID from the URL
+  const { id } = useParams(); 
 
   return (
     <div style={{ padding: '20px' }}>
@@ -10,7 +10,7 @@ const VideoDetail = () => {
         <iframe
           width="100%"
           height="500px"
-          src={`https://www.youtube.com/embed/${}`}
+          src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube Video Player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
