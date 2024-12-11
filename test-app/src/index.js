@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { fetchVideos } from './api/youtubeAPI';
 
 const App = () => {
-  const [videos, setVideos] = useState([]); // State for videos
-  const [error, setError] = useState(null); // State for errors
-  const [loading, setLoading] = useState(false); // State for loading
+  const [videos, setVideos] = useState([]); 
+  const [error, setError] = useState(null); 
+  const [loading, setLoading] = useState(false);
 
   const loadVideos = async () => {
-    setLoading(true); // Start loading
-    setError(null); // Reset any previous errors
+    setLoading(true); 
+    setError(null); 
     try {
       const fetchedVideos = await fetchVideos();
       if (fetchedVideos.length === 0) {
@@ -19,25 +19,22 @@ const App = () => {
       setError('Failed to fetch videos. Please try again later.');
       console.error('Error:', error);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 
   useEffect(() => {
-    loadVideos(); // Fetch videos on component mount
+    loadVideos();
   }, []);
 
   return (
     <div>
       <h1>YouTube Clone</h1>
 
-      {/* Show Loading Spinner */}
       {loading && <p>Loading...</p>}
 
-      {/* Show Error Message */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {/* Show Videos or No Videos Message */}
       {!loading && !error && videos.length === 0 && (
         <p>No videos available. Try a different search query.</p>
       )}

@@ -1,22 +1,24 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCWAKiFSwXsoBpvzV8L_0pVg&key=[AIzaSyBZ9-v4uf_BpxVvty0uolN7ohRpedhw9Vg] ';
-const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+// Define base URL and API key
+const BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
+const API_KEY = 'AIzaSyBZ9-v4uf_BpxVvty0uolN7ohRpedhw9Vg';
 
 export const fetchVideos = async (searchQuery = 'trending videos') => {
   try {
-    const response = await axios.get(`${'https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=UCWAKiFSwXsoBpvzV8L_0pVg&key=[AIzaSyBZ9-v4uf_BpxVvty0uolN7ohRpedhw9Vg]'}/search`, {
+    // Use the /search endpoint for fetching videos
+    const response = await axios.get(`${BASE_URL}/search`, {
       params: {
-        key: API_KEY,
-        q: searchQuery, // Search term
-        part: 'snippet',
-        type: 'video', // Ensures only videos are fetched
-        maxResults: 10,
+        key: API_KEY,          // Pass API key
+        q: searchQuery,        // Search term
+        part: 'snippet',       // Fetch video details
+        type: 'video',         // Ensure only videos are fetched
+        maxResults: 10,        // Limit the results
       },
     });
-    return response.data.items; // Array of videos
+    return response.data.items; // Return the list of videos
   } catch (error) {
-    console.error('Error fetching videos:', error);
+    console.error('Error fetching videos:', error.message); // Log error message
     return [];
   }
 };
