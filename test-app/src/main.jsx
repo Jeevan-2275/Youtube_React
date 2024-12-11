@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import './index.css'
+import './index.css'
+import './index.js'
+
 import Sidebar from './assets/Component/Sidebar.jsx'  
 import Navbar from './assets/Component/Navbar.jsx' 
 import  Mainmenu  from './assets/Component/Mainmenu.jsx' 

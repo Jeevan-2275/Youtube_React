@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { fetchVideos } from './api/youtubeAPI';
+import { fetchVideos } from './youtube/test-app/src';
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const loadVideos = async () => {
     setLoading(true);
@@ -19,7 +19,7 @@ const App = () => {
       setError('Failed to fetch videos. Please try again later.');
       console.error('Error:', error);
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -41,7 +41,7 @@ const App = () => {
 
       <div>
         {videos.length > 0 && videos.map((video) => (
-          video.id.videoId && (  // Check if videoId exists
+          video.id.videoId && (  
             <div key={video.id.videoId} style={{ marginBottom: '20px' }}>
               <h3>{video.snippet.title}</h3>
               <img
