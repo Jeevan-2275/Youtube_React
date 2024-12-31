@@ -104,7 +104,7 @@ function Mainmenu() {
     <div className="video-list">
       {videos.map((video) => (
         <div key={video.id} className="video-card">
-          <img src={video.thumbnail} alt="Thumbnail" className="thumbnail" />
+          <img src={video.thumbnail} alt={video.description} className="thumbnail" />
           <div className="video-info">
             <img src={video.profilePic} alt="Profile" className="profile-pic" />
             <div className="description">
